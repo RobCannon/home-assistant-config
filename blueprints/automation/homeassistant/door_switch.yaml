@@ -1,0 +1,36 @@
+blueprint:
+  name: Door-activated Switch
+  description: Turn on a Switch when a Door is opened.
+  domain: automation
+  input:
+    door_entity:
+      name: Door Sensor
+      selector:
+        entity:
+            domain: binary_sensor
+    switch_target:
+      name: Switch
+      selector:
+        target:
+          entity:
+            domain: switch
+
+mode: single
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input door_entity
+  from: "off"
+  to: "on"
+
+action:
+  - service: switch.turn_on
+    target: !input switch_target
+  - wait_for_trigger:
+      platform: state
+      entity_id: !input door_entity
+      from: "on"
+      to: "off"
+  - service: switch.turn_off
+    target: !input switch_target

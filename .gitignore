@@ -5,6 +5,7 @@
 !*.yaml
 !.gitignore
 !*.md
+!blueprints/automation/homeassistant
 
 # Ignore folders.
 .storage
