@@ -1,0 +1,29 @@
+- id: '1607915162450'
+  alias: Garage Motion-activated Switch
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_switch.yaml
+    input:
+      motion_entity: group.garage
+      switch_target:
+        entity_id: switch.garage_lights
+      no_motion_wait: '300'
+- id: '1608076608604'
+  alias: Porch Motion-activated Switch at Night
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_switch_at_night.yaml
+    input:
+      no_motion_wait: '120'
+      switch_target:
+        device_id: d2a0708c09efac3cbaa3d0893c184443
+      motion_entity: group.porch
+- id: '1608517744129'
+  alias: Stair Closet Door Automation
+  description: ''
+  use_blueprint:
+    path: homeassistant/door_switch.yaml
+    input:
+      door_entity: binary_sensor.stair_closet_on_off
+      switch_target:
+        device_id: a9785e742040e6c8a47c7f65cce4c450

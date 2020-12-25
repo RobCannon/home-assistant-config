@@ -1,0 +1,11 @@
+garage:
+  name: Garage Motion Sensors
+  entities:
+    - binary_sensor.garage_motion_sensor_1_ias_zone
+    - binary_sensor.garage_motion_sensor_2_ias_zone
+    
+porch:
+  name: Porch Motion Sensors
+  entities:
+    - binary_sensor.hue_porch_motion_sensor_motion
+    - binary_sensor.porch_door_motion_sensor_ias_zone
